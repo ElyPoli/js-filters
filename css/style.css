@@ -35,15 +35,23 @@ h1 {
   border-radius: 25px;
   margin: auto;
   cursor: pointer;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .upload-box:hover {
-  transform: scale(.98);
+  transform: scale(0.98);
   box-shadow: inset 0px 0px 18px 2px rgba(181, 18, 18, 0.5);
 }
 
 .upload-box > i {
   font-size: 5rem;
   color: #2b2a4c;
+}
+
+/* image preview */
+.img-preview {
+  width: 500px;
+  border: 2px solid #b31312;
+  box-shadow: 0px 0px 18px 2px rgba(181, 18, 18, 0.5);
+  border-radius: 25px;
 }

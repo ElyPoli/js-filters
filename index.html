@@ -29,9 +29,18 @@
         <h1 class="text-center fw-bold">JS - Filters</h1>
         <h3 class="text-center fst-italic mb-5">Trasforma le tue immagini con stile!</h3>
 
-        <div class="upload-box d-flex justify-content-center align-items-center mt-5">
-            <i class="fa-solid fa-upload"></i>
-        </div>
+        <main class="mt-5">
+            <!-- Btn to upload img -->
+            <label for="url-input-img" class="upload-box d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-upload"></i>
+            </label>
+            <input class="d-none" type="file" id="url-input-img" accept="image/*">
+
+            <!-- Box upload img -->
+            <div class="d-flex justify-content-center align-items-center">
+                <img class="img-preview d-none" alt="Image Preview">
+            </div>
+        </main>
     </div>
 
     <!-- JavaScript -->
