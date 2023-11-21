@@ -1,0 +1,49 @@
+/* General style */
+* {
+  font-family: "Marhey", sans-serif;
+}
+
+body {
+  background-color: #2b2a4c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #b31312;
+}
+
+p {
+  color: #ea906c;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+/* btn upload */
+.upload-box {
+  height: 250px;
+  width: 250px;
+  aspect-ratio: 1/1;
+  background-color: #eee2de;
+  border: 2px solid #b31312;
+  box-shadow: 0px 0px 18px 2px rgba(181, 18, 18, 0.5);
+  border-radius: 25px;
+  margin: auto;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.upload-box:hover {
+  transform: scale(.98);
+  box-shadow: inset 0px 0px 18px 2px rgba(181, 18, 18, 0.5);
+}
+
+.upload-box > i {
+  font-size: 5rem;
+  color: #2b2a4c;
+}
