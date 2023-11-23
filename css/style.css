@@ -48,6 +48,18 @@ h1 {
   color: #2b2a4c;
 }
 
+.upload-box-small {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  margin-top: 3rem;
+}
+
+.upload-box-small > i {
+  font-size: 1rem;
+  color: #2b2a4c;
+}
+
 /* image preview */
 .img-preview-box {
   border: 2px solid #b31312;
@@ -57,7 +69,7 @@ h1 {
 }
 
 .img-preview {
-  width: 500px;
+  width: 100%;
   border-radius: 25px;
 }
 
@@ -78,4 +90,11 @@ h1 {
   &::-webkit-slider-thumb {
     background-color: #b31312;
   }
+}
+
+/* error */
+.error-message {
+  padding: 1rem;
+  text-align: center;
+  color: #b31312;
 }

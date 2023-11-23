@@ -3,19 +3,43 @@
 // Dichiarazioni
 const imgUpload = document.querySelector(".upload-box"); // label del pulsante
 const urlInputImg = document.getElementById("url-input-img");
+const errorMessage = document.querySelector(".error-message");
 
 // L'utente seleziona un file
 urlInputImg.addEventListener("change", function () {
-  imgUpload.classList.add("d-none"); // Nascondo il label del pulsante
+  // Modifico le classi del label del pulsante
+  imgUpload.classList.add("upload-box-small");
 
-  // Creo un nuovo oggetto con il metodo "URL" utilizzando createObjectURL
-  let fileUrl = URL.createObjectURL(urlInputImg.files[0]);
-
-  // Recupero l'elemento dall'html, rimuovo la classe che lo rende non visibile e aggiungo l'url
+  // Recupero l'elemento dall'html, rimuovo la classe che lo rende non visibile
   const imgPreviewBox = document.querySelector(".img-preview-box");
   const imgPreview = document.querySelector(".img-preview");
   imgPreviewBox.classList.remove("d-none");
-  imgPreview.src = fileUrl;
+
+  // Verifico se l'utente ha selezionato un file immagine se no restituisco un errore
+  const acceptedImageTypes = [
+    "image/jpeg",
+    "image/jpg",
+    "image/png",
+    "image/gif",
+    "image/bmp",
+    "image/webp",
+    "image/svg+xml",
+  ];
+  const fileType = urlInputImg.files[0].type;
+  if (acceptedImageTypes.includes(fileType)) {
+    errorMessage.textContent = "";
+    errorMessage.classList.add("d-none");
+    imgPreview.classList.remove("d-none");
+  } else {
+    errorMessage.classList.remove("d-none");
+    errorMessage.textContent = "Errore: Il file selezionato non è un'immagine.";
+    imgPreview.classList.add("d-none"); // nascondo l'input file
+    return;
+  }
+
+  // Creo un nuovo oggetto con il metodo "URL" utilizzando createObjectURL
+  let fileUrl = URL.createObjectURL(urlInputImg.files[0]);
+  imgPreview.src = fileUrl; // aggiungo l'url all'elemento html
 
   // Recupero il box relativo e faccio apparire gli input dei filtri
   const filtersBox = document.querySelector(".filters-box");
@@ -56,14 +80,14 @@ urlInputImg.addEventListener("change", function () {
   `;
 
   // Creo un array con tutti gli input dei filtri
-  const myFilterInput = document.querySelectorAll(".my-filter-input");
+  const myFiltersInputArray = document.querySelectorAll(".my-filter-input");
 
   // Ciclo e aggiungo un eventlistener per recuperare ogni volta l'input di ciascun filtro
-  myFilterInput.forEach((filter, i) => {
+  myFiltersInputArray.forEach((filter, i) => {
     filter.addEventListener("input", function () {
       // Ottengo il valore del filtro selezionato
       let filterInput = filter.value;
-      
+
       // Creo un array con le varie unità di misuara da abbinare ai filtri
       const unitOfMeasure = ["%", "%", "%", "%", "%", "%", "px", "deg"];
 
